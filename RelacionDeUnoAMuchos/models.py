@@ -15,7 +15,10 @@ class Language(models.Model):
         return self.name
 
 class NullExample(models.Model):
-    col = models.CharField(max_length=10,blank=True)
+    col = models.CharField(max_length=10, blank=True)
+
+    def __str__(self):
+        return self.col or "Vacío"
 
 class Framework(models.Model):
     name = models.CharField(max_length=15)
