@@ -11,4 +11,4 @@ def index(request):
               ['yetises553@fixscal.com'],
               fail_silently=False
               )
-    return render(request, 'index.html')
+    return render(request, 'send/index.html')
