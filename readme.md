@@ -92,6 +92,6 @@ python manage.py runserver
 
 | Ruta | Descripción |
 |--------|------------|
-| `/` | Envío de correos |
+| `/email` | Envío de correos |
 | `/pdf/` | Generación de PDF |
 
