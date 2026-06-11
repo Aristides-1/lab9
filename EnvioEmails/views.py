@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.core.mail import send_mail
 
@@ -7,7 +8,7 @@ def index(request):
 
     send_mail('Hola desde Django y Python',
               'Este es un correo de prueba y automatizado enviado desde Django. SALUDOSSS',
-              'diegozc792@gmail.com',
+              settings.EMAIL_HOST_USER,
               ['yetises553@fixscal.com'],
               fail_silently=False
               )
