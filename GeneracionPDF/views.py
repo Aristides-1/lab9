@@ -5,15 +5,30 @@ from relacionesunoamuchos import renderers
 
 def pdf_view(request):
 
-    data = {
-        "pdf_title": "Laboratorio Django",
-        "invoice_number": "001",
+    invoice_number = "001"
+
+    context = {
         "customer_name": "Diego Cervantes",
+        "invoice_number": invoice_number,
         "amount": "100.00",
-        "date": date.today(),
+        "date": datetime.date.today(),
+        "pdf_title": f"Laboratorio #{invoice_number}",
     }
 
-    return renderers.render_to_pdf(
+    response = renderers.render_to_pdf(
         "pdfs/invoice.html",
-        data
+        context
     )
+
+    filename = f"Laboratorio_{invoice_number}.pdf"
+
+    content = f"inline; filename={filename}"
+
+    download = request.GET.get("download")
+
+    if download:
+        content = f"attachment; filename={filename}"
+
+    response["Content-Disposition"] = content
+
+    return response
