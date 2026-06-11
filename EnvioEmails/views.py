@@ -9,7 +9,7 @@ def index(request):
     send_mail('Hola desde Django y Python',
               'Este es un correo de prueba y automatizado enviado desde Django. SALUDOSSS',
               settings.EMAIL_HOST_USER,
-              ['jovat24146@fixscal.com'],
+              ['jikin38989@synsky.com'],
               fail_silently=False
               )
     return render(request, 'send/index.html')
